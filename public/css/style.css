@@ -26,18 +26,29 @@
 .card-data {
     border: solid;
     padding: 20px 50px;
-    background-color: teal;
     color: #ffffff;
 }
 
+.card-data.book {
+    background-color: teal;
+}
+
+.card-data.category {
+    background-color: orangered;
+}
+
+.card-data.user {
+    background-color: purple;
+}
+
 .card-data i {
-    font-size: 80px;
+    font-size: 50px;
 }
 
 .card-desc {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .card-count {
-    font-size: 30px;
+    font-size: 10px;
 }
