@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Bool_;
 
 class BookController extends Controller
 {
@@ -66,5 +67,31 @@ class BookController extends Controller
         }
         return redirect('books')->with('status', 'Book Update Successfully');
         
+    }
+
+    public function delete($slug)
+    {
+        $book = Book::where('slug', $slug)->first();
+        return view('book-delete', ['book' => $book]);
+    }
+
+    public function destroy($slug)
+    {
+        $book = Book::where('slug', $slug)->first();
+        $book->delete();
+        return redirect('books')->with('status', 'Book Deleted Successfully');
+    }
+
+    public function deletedBook()
+    {
+        $deletedBooks = Book::onlyTrashed()->get();
+        return view('book-deleted-list', ['deletedBooks' => $deletedBooks]);
+    }
+
+    public function restore($slug)
+    {
+        $book = Book::withTrashed()->where('slug', $slug)->first();
+        $book->restore();
+        return redirect('books')->with('status', 'Book Restored Successfully');
     }
 }

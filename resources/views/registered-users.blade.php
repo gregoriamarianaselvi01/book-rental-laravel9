@@ -5,11 +5,10 @@
 @section('page-name')
 
 @section('content')
-    <h1>Users List</h1>
+    <h1>New Registered Users List</h1>
 
     <div class="mt-3 d-flex justify-content-end">
-        <a href="/user-banned" class="btn btn-secondary me-3"> <i class="bi bi-list"></i> View Banned</a>
-        <a href="/registered-users" class="btn btn-primary"> <i class="bi bi-person-plus"></i></i> New Registered User </a>
+        <a href="/users" class="btn btn-primary"> <i class="bi bi-backspace"></i> Back</a>
     </div>
     <div class="mt-5">
         @if (session('status'))
@@ -29,7 +28,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($users as $item)
+                @foreach ($registeredUsers as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->username }}</td>
@@ -41,10 +40,9 @@
                         @endif
                     </td>
                     <td>
-                        <a href="/user-detail/{{$item->slug}}"><i class="bi bi-ticket-detailed"></i></a>
-                        <a href="/user-ban/{{$item->slug}}"><i class="bi bi-ban"></i></i></a>
+                        <a href="user-detail/{{$item->slug}}"><i class="bi bi-ticket-detailed"></i></a>
                     </td>
-                </tr>  
+                </tr>
                 @endforeach
             </tbody>
         </table>

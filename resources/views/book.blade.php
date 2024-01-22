@@ -42,8 +42,8 @@
                         </td>
                         <td>{{ $item->status }}</td>
                         <td>
-                            <a href="book-edit/{{$item->slug}}"><i class="bi bi-pencil-square"></i></a>
-                            <a href="book-delete/{{$item->slug}}"><i class="bi bi-trash"></i></a>
+                            <a href="/book-edit/{{$item->slug}}"><i class="bi bi-pencil-square"></i></a>
+                            <a href="/book-delete/{{$item->slug}}"><i class="bi bi-trash"></i></a>
                         </td>
                     </tr>
                 @endforeach
