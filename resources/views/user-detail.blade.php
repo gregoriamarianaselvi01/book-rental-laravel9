@@ -40,4 +40,9 @@
             <a href="/users" class="btn btn-primary">Back</a>
         </div>
     </div>
+
+    <div class="mt-5">
+        <h2>User's Rent Log</h2>
+        <x-rent-log-table :rentlog='$rent_logs'/>
+    </div>
 @endsection 
